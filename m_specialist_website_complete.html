@@ -1,0 +1,1098 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chang Yung Metal Work Co., Ltd. | Industrial Saw Blades Manufacturer Since 1969</title>
+  <meta name="description" content="Taiwan premier saw blade manufacturer since 1969. Specialized in Scroll Saw Blades, Coping Saw Blades, Mini Hacksaw Blades, Air Saw Blades, and Hacksaw Blades. OEM/ODM services available.">
+  <meta name="keywords" content="saw blade manufacturer, scroll saw blades, coping saw blades, mini hacksaw blades, air saw blades, hacksaw blades, Chang Yung Metal Work, Taiwan hand tools, OEM saw blades">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Chang Yung Metal Work Co., Ltd. | Precision Saw Blades">
+  <meta property="og:description" content="Made in Taiwan precision cutting tools since 1969. OEM & ODM export partner for global tool brands.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.m-specialist.com">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* 
+      Chang Yung Metal Work Co., Ltd. (長榮金屬工業)
+      Light & Deep Emerald Green Theme (深翠綠色主題)
+    */
+    :root {
+      --bg-dark: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #F1F5F9;
+      --bg-surface: #ECFDF5;
+      
+      --primary: #047857;          /* 翠綠 / Dark Emerald */
+      --primary-hover: #065F46;    /* 深森林綠 / Deep Forest Green */
+      --primary-glow: rgba(4, 120, 87, 0.2);
+      
+      --accent: #D97706;           /* 琥珀金 / Amber Gold */
+      --accent-hover: #B45309;
+      --accent-glow: rgba(217, 119, 6, 0.2);
+      
+      --success: #10B981;
+      --emerald-dark: #064E3B;     /* 深翡翠綠 */
+      --emerald-light: #D1FAE5;    /* 淺翡翠綠 */
+      
+      --text-main: #0F172A;        /* 主要深色文字 */
+      --text-muted: #475569;       /* 次要內文 */
+      --text-dim: #64748B;         /* 灰字說明 */
+      
+      --border: rgba(15, 23, 42, 0.12);
+      --border-light: rgba(15, 23, 42, 0.06);
+      
+      --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Space Grotesk', var(--font-main);
+      
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      
+      --shadow-card: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+      --shadow-glow: 0 10px 30px rgba(4, 120, 87, 0.15);
+      
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--primary-hover);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .text-center { text-align: center; }
+    .text-gradient {
+      background: linear-gradient(135deg, #065F46 0%, #047857 50%, #059669 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge-accent {
+      background: rgba(217, 119, 6, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(217, 119, 6, 0.3);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .btn-sm { padding: 0.5rem 1rem; font-size: 0.875rem; }
+    .btn-lg { padding: 0.9rem 2rem; font-size: 1.05rem; }
+    .btn-full { width: 100%; }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px var(--primary-glow);
+    }
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--primary-glow);
+    }
+
+    .btn-secondary {
+      background: #FFFFFF;
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+    .btn-secondary:hover {
+      background: #F1F5F9;
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: #FFFFFF;
+      font-weight: 700;
+      box-shadow: 0 4px 14px var(--accent-glow);
+    }
+    .btn-accent:hover {
+      background: var(--accent-hover);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+    .btn-outline:hover {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+
+    /* Guide Bar */
+    .guide-bar {
+      background: var(--emerald-dark);
+      color: #D1FAE5;
+      padding: 0.6rem 0;
+      font-size: 0.85rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .guide-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .guide-btn-toggle {
+      background: rgba(255, 255, 255, 0.2);
+      color: #FFF;
+      border: none;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    .top-bar {
+      background: #022C22;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.8rem;
+      color: #A7F3D0;
+      padding: 0.4rem 0;
+    }
+    .top-bar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .top-bar-left { display: flex; align-items: center; gap: 0.75rem; }
+    .top-bar-right { display: flex; gap: 1.25rem; }
+    .top-link { color: #A7F3D0; }
+    .top-link:hover { color: #FFFFFF; }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      transition: var(--transition);
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 0.75rem; color: var(--text-main); }
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--primary) 100%);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+    }
+    .brand-text { display: flex; flex-direction: column; }
+    .brand-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; letter-spacing: 0.05em; color: var(--emerald-dark); }
+    .brand-sub { font-size: 0.725rem; color: var(--text-muted); }
+
+    .nav-menu { display: flex; gap: 2rem; }
+    .nav-link { color: var(--text-muted); font-weight: 500; font-size: 0.95rem; padding: 0.5rem 0; position: relative; }
+    .nav-link:hover, .nav-link.active { color: var(--primary); }
+    .nav-link.active::after {
+      content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2.5px; background: var(--primary); border-radius: 2px;
+    }
+
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+    .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--text-main); margin: 5px 0; transition: var(--transition); }
+
+    .section { padding: 5rem 0; }
+    .section-header { max-width: 680px; margin: 0 auto 3.5rem auto; }
+    .section-tag { display: inline-block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--primary); margin-bottom: 0.5rem; }
+    .section-title { font-family: var(--font-display); font-size: 2.25rem; font-weight: 700; color: var(--text-main); line-height: 1.25; margin-bottom: 1rem; }
+    .section-subtitle { font-size: 1.05rem; color: var(--text-muted); }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: 6rem 0 5rem 0;
+      background: radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.12) 0%, transparent 60%);
+      border-bottom: 1px solid var(--border-light);
+      overflow: hidden;
+    }
+    .hero-container { max-width: 900px; text-align: center; position: relative; z-index: 2; }
+    .hero-badge-wrapper { margin-bottom: 1.5rem; }
+    .hero-badge { display: inline-block; padding: 0.35rem 1rem; background: rgba(4, 120, 87, 0.1); border: 1px solid rgba(4, 120, 87, 0.25); color: var(--primary); font-size: 0.85rem; font-weight: 600; border-radius: 9999px; }
+    .hero-title { font-family: var(--font-display); font-size: 3.5rem; font-weight: 700; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.02em; }
+    .hero-subtitle { font-size: 1.2rem; color: var(--text-muted); max-width: 720px; margin: 0 auto 2.5rem auto; line-height: 1.6; }
+    .hero-cta-group { display: flex; justify-content: center; gap: 1.25rem; margin-bottom: 4rem; }
+
+    .hero-metrics {
+      display: flex; justify-content: center; align-items: center; gap: 2.5rem;
+      background: #FFFFFF; border: 1px solid var(--border);
+      padding: 1.75rem 2.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-card);
+    }
+    .metric-card { text-align: center; }
+    .metric-num { font-family: var(--font-display); font-size: 1.85rem; font-weight: 700; color: var(--primary); }
+    .metric-label { font-size: 0.825rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.2rem; }
+    .metric-divider { width: 1px; height: 36px; background: var(--border); }
+
+    /* Products */
+    .products-section { background: var(--bg-dark); }
+    .product-filters { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 3rem; }
+    .filter-btn { padding: 0.5rem 1.25rem; background: #FFFFFF; border: 1px solid var(--border); color: var(--text-muted); border-radius: 9999px; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: var(--transition); }
+    .filter-btn:hover, .filter-btn.active { background: var(--primary); color: #FFFFFF; border-color: var(--primary); }
+
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
+    .product-card { background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column; transition: var(--transition); box-shadow: var(--shadow-card); }
+    .product-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: var(--shadow-glow); }
+
+    .product-image-box { position: relative; background: #F1F5F9; padding: 1.5rem; border-bottom: 1px solid var(--border-light); }
+    .product-badge { position: absolute; top: 1rem; left: 1rem; background: rgba(4, 120, 87, 0.12); color: var(--primary); border: 1px solid rgba(4, 120, 87, 0.25); padding: 0.2rem 0.6rem; font-size: 0.75rem; font-weight: 600; border-radius: 4px; }
+
+    .product-body { padding: 1.75rem; display: flex; flex-direction: column; flex-grow: 1; }
+    .product-meta { margin-bottom: 0.5rem; }
+    .category-tag { font-size: 0.775rem; color: var(--accent); font-weight: 600; text-transform: uppercase; }
+    .product-name { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--emerald-dark); }
+    .product-desc { font-size: 0.925rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5; }
+
+    .product-spec-list { background: #F8FAFC; border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 0.9rem 1rem; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .product-spec-list li { margin-bottom: 0.35rem; }
+    .product-spec-list li:last-child { margin-bottom: 0; }
+    .product-spec-list strong { color: var(--text-main); }
+    .product-card-actions { margin-top: auto; display: flex; flex-direction: column; gap: 0.75rem; }
+
+    /* OEM Section - Deep Emerald Accent Box */
+    .oem-section { background: #FFFFFF; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+    .oem-card { background: linear-gradient(135deg, #064E3B 0%, #022C22 100%); color: #FFFFFF; border-radius: var(--radius-lg); padding: 3.5rem; box-shadow: 0 15px 35px rgba(2, 44, 34, 0.2); }
+    .oem-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: center; }
+    .oem-title { font-family: var(--font-display); font-size: 2rem; margin-bottom: 1rem; color: #FFFFFF; }
+    .oem-desc { color: #A7F3D0; font-size: 1.05rem; margin-bottom: 2rem; }
+    .oem-features { display: flex; flex-direction: column; gap: 1.25rem; }
+    .oem-feature-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .feature-icon { font-size: 1.5rem; background: rgba(255, 255, 255, 0.1); width: 44px; height: 44px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .oem-feature-item h4 { font-size: 1.05rem; margin-bottom: 0.2rem; color: #FFFFFF; }
+    .oem-feature-item p { font-size: 0.875rem; color: #D1FAE5; }
+
+    .oem-stats-box { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-md); padding: 2rem; }
+    .oem-stats-box h3 { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 1.25rem; color: #F59E0B; }
+    .oem-check-list { margin-bottom: 2rem; }
+    .oem-check-list li { font-size: 0.925rem; color: #ECFDF5; margin-bottom: 0.75rem; }
+
+    /* About Section */
+    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3.5rem; align-items: center; }
+    .about-text { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.25rem; }
+    .company-details-table { background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.25rem; margin-top: 2rem; box-shadow: var(--shadow-card); }
+    .detail-row { display: flex; padding: 0.6rem 0; border-bottom: 1px solid var(--border-light); font-size: 0.9rem; }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-label { width: 140px; font-weight: 600; color: var(--emerald-dark); flex-shrink: 0; }
+    .detail-val { color: var(--text-muted); }
+
+    .visual-card { background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2.5rem; box-shadow: var(--shadow-card); }
+    .visual-header h3 { font-family: var(--font-display); font-size: 1.5rem; margin-top: 0.5rem; color: var(--emerald-dark); }
+    .trust-icons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.75rem; }
+    .trust-pill { background: #ECFDF5; border: 1px solid rgba(4, 120, 87, 0.2); color: var(--primary); padding: 0.6rem; border-radius: var(--radius-sm); font-size: 0.85rem; text-align: center; font-weight: 600; }
+
+    /* Contact Section */
+    .contact-section { background: #F1F5F9; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 3rem; }
+    .contact-info-card, .contact-form-card { background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2.5rem; box-shadow: var(--shadow-card); }
+    .contact-info-card h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--emerald-dark); }
+    .info-intro { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; }
+
+    .info-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+    .info-icon { font-size: 1.25rem; width: 40px; height: 40px; background: #ECFDF5; color: var(--primary); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .info-item strong { display: block; font-size: 0.95rem; color: var(--text-main); }
+    .info-item p { font-size: 0.9rem; color: var(--text-muted); }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-main); }
+    .form-group input[type="text"], .form-group input[type="email"], .form-group textarea {
+      width: 100%; padding: 0.75rem 1rem; background: #F8FAFC; border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text-main); font-family: var(--font-main); font-size: 0.95rem; transition: var(--transition);
+    }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); background: #FFFFFF; box-shadow: 0 0 0 3px var(--primary-glow); }
+
+    .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.6rem; background: #F8FAFC; padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light); }
+    .checkbox-label { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--text-muted); cursor: pointer; }
+    .checkbox-label input { accent-color: var(--primary); }
+
+    .form-response { margin-top: 1rem; padding: 0.75rem 1rem; border-radius: var(--radius-sm); font-size: 0.9rem; display: none; }
+    .form-response.success { display: block; background: #ECFDF5; border: 1px solid var(--success); color: var(--primary); }
+
+    /* Footer */
+    .footer { background: #022C22; color: #A7F3D0; border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 4rem 0 0 0; }
+    .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; }
+    .footer-desc { font-size: 0.9rem; color: #A7F3D0; margin-top: 0.75rem; max-width: 380px; }
+    .footer-heading { font-family: var(--font-display); font-size: 1.05rem; color: #FFFFFF; margin-bottom: 1.25rem; }
+    .footer-links li { margin-bottom: 0.5rem; }
+    .footer-links a { color: #A7F3D0; font-size: 0.9rem; }
+    .footer-links a:hover { color: #FFFFFF; }
+    .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 1.5rem 0; font-size: 0.825rem; color: #6EE7B7; }
+    .footer-bottom-inner { display: flex; justify-content: space-between; }
+    .footer-credit { color: #F59E0B; }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px); z-index: 1000;
+      display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; visibility: hidden; transition: var(--transition);
+    }
+    .modal-overlay.open { opacity: 1; visibility: visible; }
+    .modal-card { background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--radius-md); width: 100%; max-width: 850px; max-height: 85vh; overflow-y: auto; padding: 2.5rem; position: relative; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+    .modal-close { position: absolute; top: 1.25rem; right: 1.25rem; background: #F1F5F9; border: none; color: var(--text-main); font-size: 1.5rem; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .modal-close:hover { background: #E2E8F0; }
+
+    .spec-table-title { font-family: var(--font-display); font-size: 1.6rem; color: var(--emerald-dark); margin-bottom: 0.5rem; }
+    .spec-table-sub { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .spec-table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.9rem; }
+    .spec-table th { background: #064E3B; color: #FFFFFF; text-align: left; padding: 0.75rem 1rem; border: 1px solid var(--border); font-family: var(--font-display); }
+    .spec-table td { padding: 0.75rem 1rem; border: 1px solid var(--border-light); color: var(--text-main); }
+    .spec-table tr:nth-child(even) { background: #F8FAFC; }
+    .spec-table tr:hover { background: #ECFDF5; }
+
+    /* Instructions Drawer */
+    .guide-drawer {
+      background: #FFFFFF;
+      border: 1px solid var(--primary);
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      margin: 1rem auto;
+      max-width: 1240px;
+      font-size: 0.9rem;
+      display: none;
+      box-shadow: var(--shadow-card);
+    }
+    .guide-drawer.active { display: block; }
+    .guide-drawer h3 { color: var(--emerald-dark); margin-bottom: 0.5rem; }
+    .guide-drawer ol { margin-left: 1.25rem; color: var(--text-muted); }
+
+    @media (max-width: 992px) {
+      .hero-title { font-size: 2.75rem; }
+      .oem-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-metrics { flex-wrap: wrap; gap: 1.5rem; }
+      .metric-divider { display: none; }
+      .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .top-bar-right { display: none; }
+      .nav-menu {
+        position: fixed; top: 72px; left: 0; width: 100%; background: #FFFFFF; flex-direction: column; padding: 2rem; gap: 1.25rem; border-bottom: 1px solid var(--border); transform: translateY(-150%); transition: var(--transition);
+      }
+      .nav-menu.active { transform: translateY(0); }
+      .mobile-toggle { display: block; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-cta-group { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Deploy Instructions Banner -->
+  <div class="guide-bar">
+    <div class="container guide-content">
+      <span>✅ <strong>Chang Yung Metal Work — Official Website</strong> (`m_specialist_website_complete.html`)</span>
+      <button class="guide-btn-toggle" onclick="toggleGuide()">View GitHub Deployment Guide ($0 Free Hosting)</button>
+    </div>
+  </div>
+
+  <!-- Collapsible Deployment Guide -->
+  <div class="container">
+    <div class="guide-drawer" id="guideDrawer">
+      <h3>📖 GitHub Pages Deployment Guide ($0 / Free Hosting)</h3>
+      <ol>
+        <li>Rename the file to <code>index.html</code> and upload to a GitHub Repository (e.g. <code>m-specialist-website</code>)</li>
+        <li>Go to GitHub repo <strong>Settings</strong> → <strong>Pages</strong> → <strong>Source</strong>, select <code>main</code> branch and Save</li>
+        <li>Enter <code>www.m-specialist.com</code> in Custom Domain and check <strong>Enforce HTTPS</strong></li>
+        <li>Add a CNAME record in your DNS settings pointing to <code>your-username.github.io</code></li>
+        <li>Get a free Access Key from <a href="https://web3forms.com" target="_blank" style="color:var(--primary); text-decoration:underline;">Web3Forms.com</a> and replace the key in code to bind <code>sales@m-specialist.com</code> for receiving inquiries</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-left">
+        <span class="badge badge-accent">100% Made in Taiwan</span>
+        <span>Est. 1969 | 55+ Years of Saw Blade Manufacturing Excellence</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="mailto:sales@m-specialist.com" class="top-link">✉️ sales@m-specialist.com</a>
+        <a href="tel:+886422783588" class="top-link">📞 +886-4-22783588</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+            <path d="m4 13 4-4 4 4 4-4 4 4"/>
+            <path d="M4 17h16"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">CHANG YUNG</span>
+          <span class="brand-sub">Metal Work Co., Ltd. (長榮金屬工業)</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#products" class="nav-link">Products</a>
+        <a href="#oem" class="nav-link">OEM / ODM</a>
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#contact" class="nav-link">Contact Us</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary btn-sm">Request Quote</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="container hero-container">
+      <div class="hero-badge-wrapper">
+        <span class="hero-badge">Industrial Cutting Solutions</span>
+      </div>
+      <h1 class="hero-title">Precision Saw Blades <br><span class="text-gradient">Engineered for Perfection</span></h1>
+      <p class="hero-subtitle">
+        Taiwan's leading manufacturer of high-performance cutting saw blades since 1969. Specialized in Scroll Saws, Coping Saws, Mini Hacksaws, Air Saws, and Industrial Hacksaw Blades for global OEM/ODM partners.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#products" class="btn btn-primary btn-lg">Explore Products & Specs</a>
+        <a href="#contact" class="btn btn-secondary btn-lg">Direct Inquiry</a>
+      </div>
+
+      <div class="hero-metrics">
+        <div class="metric-card">
+          <div class="metric-num">55+</div>
+          <div class="metric-label">Years Experience</div>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-card">
+          <div class="metric-num">50+</div>
+          <div class="metric-label">Countries Exported</div>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-card">
+          <div class="metric-num">100%</div>
+          <div class="metric-label">Quality Inspection</div>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-card">
+          <div class="metric-num">OEM</div>
+          <div class="metric-label">Custom Tooling</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="section products-section" id="products">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Product Catalog</span>
+        <h2 class="section-title">Core Saw Blade Offerings</h2>
+        <p class="section-subtitle">Premium grade cutting saw blades engineered for clean cuts, durability, and high fatigue resistance.</p>
+      </div>
+
+      <div class="product-filters">
+        <button class="filter-btn active" data-filter="all">All Products</button>
+        <button class="filter-btn" data-filter="scroll">Scroll Saw</button>
+        <button class="filter-btn" data-filter="coping">Coping Saw</button>
+        <button class="filter-btn" data-filter="mini">Mini Hacksaw</button>
+        <button class="filter-btn" data-filter="air">Air Saw</button>
+        <button class="filter-btn" data-filter="hacksaw">Hacksaw</button>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+
+        <!-- 1. Scroll Saw Blade -->
+        <div class="product-card" data-category="scroll">
+          <div class="product-image-box">
+            <span class="product-badge">Best Seller</span>
+            <div class="saw-illustration"><img src="images/scroll-saw.jpg" alt="Scroll Saw Blades" style="width:100%; height:auto; border-radius:8px;"></div>
+          </div>
+          <div class="product-body">
+            <div class="product-meta"><span class="category-tag">Fretsaw & Woodworking</span></div>
+            <h3 class="product-name">Scroll Saw Blades</h3>
+            <p class="product-desc">Available in <strong>Plain End</strong> and <strong>Pinned End</strong>. Engineered for intricate internal curves, fretwork, and fine woodworking.</p>
+            <ul class="product-spec-list">
+              <li><strong>End Types:</strong> Plain End / Pinned End</li>
+              <li><strong>Teeth Range:</strong> TPI 10, 14, 18, 20, 24, 28</li>
+              <li><strong>Standard Length:</strong> 5" (127mm) / 130mm</li>
+              <li><strong>Material:</strong> Premium High Carbon Steel (HCS)</li>
+            </ul>
+            <div class="product-card-actions">
+              <button class="btn btn-outline btn-full open-spec-btn" data-product="scroll">View Specification Table</button>
+              <button class="btn btn-primary btn-full inquire-btn" data-item="Scroll Saw Blades (Plain & Pinned End)">Inquire This Item</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Coping Saw Blade -->
+        <div class="product-card" data-category="coping">
+          <div class="product-image-box">
+            <span class="product-badge">High Precision</span>
+            <div class="saw-illustration"><img src="images/coping-saw.jpg" alt="Coping Saw Blades" style="width:100%; height:auto; border-radius:8px;"></div>
+          </div>
+          <div class="product-body">
+            <div class="product-meta"><span class="category-tag">Hand Saw Blades</span></div>
+            <h3 class="product-name">Coping Saw Blades</h3>
+            <p class="product-desc">Designed for coping joints and sharp curved cuts in wood, plastics, and non-ferrous soft metals. Features pinned ends for quick frame tensioning.</p>
+            <ul class="product-spec-list">
+              <li><strong>Pin Distance:</strong> 6.5" (165mm) Standard</li>
+              <li><strong>Teeth Range:</strong> TPI 14, 18, 24 fine tooth</li>
+              <li><strong>Blade Width:</strong> 1.5mm - 3.0mm</li>
+              <li><strong>Application:</strong> Crown molding & woodworking</li>
+            </ul>
+            <div class="product-card-actions">
+              <button class="btn btn-outline btn-full open-spec-btn" data-product="coping">View Specification Table</button>
+              <button class="btn btn-primary btn-full inquire-btn" data-item="Coping Saw Blades">Inquire This Item</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Mini Hacksaw Blade -->
+        <div class="product-card" data-category="mini">
+          <div class="product-image-box">
+            <span class="product-badge">Compact & Tough</span>
+            <div class="saw-illustration"><img src="images/mini-hacksaw.jpg" alt="Mini Hacksaw Blades" style="width:100%; height:auto; border-radius:8px;"></div>
+          </div>
+          <div class="product-body">
+            <div class="product-meta"><span class="category-tag">Plumbing & Maintenance</span></div>
+            <h3 class="product-name">Mini Hacksaw Blades</h3>
+            <p class="product-desc">6-inch (150mm) compact blades for tight-space cutting of metal pipes, plastic conduits, bolts, and small timber components.</p>
+            <ul class="product-spec-list">
+              <li><strong>Length:</strong> 6" (150mm)</li>
+              <li><strong>Teeth Range:</strong> TPI 24 / 32 Fine Teeth</li>
+              <li><strong>Material:</strong> High Carbon Steel (HCS) / Flexible Carbon Steel</li>
+              <li><strong>Packaging:</strong> Bulk, Blister Card, OEM Pack</li>
+            </ul>
+            <div class="product-card-actions">
+              <button class="btn btn-outline btn-full open-spec-btn" data-product="mini">View Specification Table</button>
+              <button class="btn btn-primary btn-full inquire-btn" data-item="Mini Hacksaw Blades">Inquire This Item</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Air Saw Blade -->
+        <div class="product-card" data-category="air">
+          <div class="product-image-box">
+            <span class="product-badge">Industrial Grade</span>
+            <div class="saw-illustration"><img src="images/air-saw.jpg" alt="Air Saw Blades" style="width:100%; height:auto; border-radius:8px;"></div>
+          </div>
+          <div class="product-body">
+            <div class="product-meta"><span class="category-tag">Pneumatic Body Saws</span></div>
+            <h3 class="product-name">Air Saw Blades (Pneumatic)</h3>
+            <p class="product-desc">High-durability Bi-Metal M42 pneumatic reciprocating saw blades for automotive body repair, sheet metal fabrication, and industrial body saws.</p>
+            <ul class="product-spec-list">
+              <li><strong>Shank:</strong> Universal Pneumatic Body Saw Shank</li>
+              <li><strong>Teeth Range:</strong> TPI 18, 24, 32</li>
+              <li><strong>Material:</strong> Premium Bi-Metal (M42 + D6A)</li>
+              <li><strong>Feature:</strong> High shatterproof & wear resistance</li>
+            </ul>
+            <div class="product-card-actions">
+              <button class="btn btn-outline btn-full open-spec-btn" data-product="air">View Specification Table</button>
+              <button class="btn btn-primary btn-full inquire-btn" data-item="Air Saw Blades (Pneumatic)">Inquire This Item</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Hacksaw Blade -->
+        <div class="product-card" data-category="hacksaw">
+          <div class="product-image-box">
+            <span class="product-badge">Heavy Duty</span>
+            <div class="saw-illustration"><img src="images/hacksaw.jpg" alt="Hacksaw Blades" style="width:100%; height:auto; border-radius:8px;"></div>
+          </div>
+          <div class="product-body">
+            <div class="product-meta"><span class="category-tag">Metal Cutting & Engineering</span></div>
+            <h3 class="product-name">Hacksaw Blades (12" / 300mm)</h3>
+            <p class="product-desc">Standard 12-inch hacksaw blades engineered for cutting structural steel, pipes, iron, rebar, and metal components. Flexible and durable steel construction.</p>
+            <ul class="product-spec-list">
+              <li><strong>Length:</strong> 12" (300mm) Standard</li>
+              <li><strong>Teeth Range:</strong> TPI 14, 18, 24, 32</li>
+              <li><strong>Width/Thickness:</strong> 1/2" (12.7mm) x 0.65mm</li>
+              <li><strong>Blade Grade:</strong> High Carbon Steel (HCS) / Flexible Carbon Steel</li>
+            </ul>
+            <div class="product-card-actions">
+              <button class="btn btn-outline btn-full open-spec-btn" data-product="hacksaw">View Specification Table</button>
+              <button class="btn btn-primary btn-full inquire-btn" data-item="Hacksaw Blades (12 / 300mm)">Inquire This Item</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OEM / ODM Section -->
+  <section class="section oem-section" id="oem">
+    <div class="container">
+      <div class="oem-card">
+        <div class="oem-grid">
+          <div class="oem-content">
+            <span class="section-tag" style="color:#A7F3D0;">Custom Manufacturing</span>
+            <h2 class="oem-title">OEM & ODM Service Solutions</h2>
+            <p class="oem-desc">
+              We specialize in custom tool manufacturing for international hardware brands, distributors, and tool importers. From custom tooth pitch and blade geometry to private label packaging, Chang Yung delivers tailored OEM solutions.
+            </p>
+            <div class="oem-features">
+              <div class="oem-feature-item">
+                <div class="feature-icon">⚙️</div>
+                <div>
+                  <h4>Custom Blade Specs</h4>
+                  <p>TPI, tooth angle, heat treatment hardness, and specialized steel alloys.</p>
+                </div>
+              </div>
+              <div class="oem-feature-item">
+                <div class="feature-icon">📦</div>
+                <div>
+                  <h4>Private Label Packaging</h4>
+                  <p>Blister cards, hanging polybags, color boxes, and custom branding prints.</p>
+                </div>
+              </div>
+              <div class="oem-feature-item">
+                <div class="feature-icon">🔍</div>
+                <div>
+                  <h4>Strict Quality Control</h4>
+                  <p>100% optical tooth checking, hardness testing, and cycle fatigue analysis.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="oem-stats-box">
+            <h3>Why Partner With Us?</h3>
+            <ul class="oem-check-list">
+              <li>✓ Over 55 years of blade manufacturing expertise</li>
+              <li>✓ Direct factory pricing with zero trading markups</li>
+              <li>✓ Fast sample prototyping and small batch trial orders</li>
+              <li>✓ Flexible delivery terms (FOB Taiwan, CIF, Express)</li>
+              <li>✓ Responsive engineering support for custom tooling</li>
+            </ul>
+            <div class="oem-box-cta">
+              <a href="#contact" class="btn btn-accent btn-full">Discuss OEM Customization</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-info">
+          <span class="section-tag">Heritage & Excellence</span>
+          <h2 class="section-title">Chang Yung Metal Work Co., Ltd. <br><span class="text-sub">長榮金屬工業股份有限公司</span></h2>
+          <p class="about-text">
+            Established in 1969 in Taichung, Taiwan, <strong>Chang Yung Metal Work Co., Ltd.</strong> has grown into a trusted manufacturer of cutting saws and specialized saw blades. 
+          </p>
+          <p class="about-text">
+            Combining traditional metallurgy craftsmanship with modern precision automated tooth-punching and heat-treatment equipment, we export high-grade saw blades to over 50 countries across North America, Europe, Asia, and Australia.
+          </p>
+
+          <div class="company-details-table">
+            <div class="detail-row"><span class="detail-label">Established:</span><span class="detail-val">1969 (55+ Years Industry Leadership)</span></div>
+            <div class="detail-row"><span class="detail-label">Headquarters:</span><span class="detail-val">No. 552, Sec. 2, Yongping Rd., Taiping Dist., Taichung City 411, Taiwan</span></div>
+            <div class="detail-row"><span class="detail-label">Business Scope:</span><span class="detail-val">Saw Blades Manufacturing, OEM/ODM Export</span></div>
+            <div class="detail-row"><span class="detail-label">Quality Commitment:</span><span class="detail-val">ISO Compliant Quality Management & Strict Sourcing</span></div>
+          </div>
+        </div>
+
+        <div class="about-visual">
+          <div class="visual-card">
+            <div class="visual-header">
+              <span class="badge badge-accent">Factory Direct</span>
+              <h3>Precision Manufacturing</h3>
+            </div>
+            <div class="visual-body">
+              <p>Our dedicated manufacturing facility in Taichung features state-of-the-art tooling machinery, ensuring precise tooth geometry and optimal blade flex resistance for professional cutting applications.</p>
+              <div class="trust-icons-grid">
+                <div class="trust-pill">🇹🇼 Made in Taiwan</div>
+                <div class="trust-pill">🛡️ Hardness Tested</div>
+                <div class="trust-pill">⚡ High Endurance</div>
+                <div class="trust-pill">🚚 Fast Lead Time</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Direct Inquiry</span>
+        <h2 class="section-title">Request a Quote or Sample</h2>
+        <p class="section-subtitle">Get direct factory pricing for bulk orders or custom OEM requirements. Our sales engineers reply within 24 hours.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info-card">
+          <h3>Contact Details</h3>
+          <p class="info-intro">Reach out directly to our sales department in Taichung, Taiwan.</p>
+
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div>
+              <strong>Factory Address</strong>
+              <p>No. 552, Sec. 2, Yongping Rd., Taiping Dist., Taichung City 411, Taiwan<br>(台中市太平區永平路二段 552 號)</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">✉️</div>
+            <div>
+              <strong>Email Inquiries</strong>
+              <p><a href="mailto:sales@m-specialist.com">sales@m-specialist.com</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📞</div>
+            <div>
+              <strong>Phone / Fax</strong>
+              <p>Tel: +886-4-22783588<br>Fax: +886-4-22707742</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">🌐</div>
+            <div>
+              <strong>Official Website</strong>
+              <p><a href="https://www.m-specialist.com">www.m-specialist.com</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <form class="inquiry-form" id="inquiryForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="b94535eb-0d78-4fa6-8cd3-fa494fdf9948">
+            <input type="hidden" name="subject" value="New B2B Saw Blade Inquiry from Website">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="userName">Full Name *</label>
+                <input type="text" id="userName" name="name" required placeholder="e.g. John Smith">
+              </div>
+              <div class="form-group">
+                <label for="companyName">Company Name *</label>
+                <input type="text" id="companyName" name="company" required placeholder="e.g. Acme Tools Ltd.">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="userEmail">Business Email *</label>
+                <input type="email" id="userEmail" name="email" required placeholder="john@acmetools.com">
+              </div>
+              <div class="form-group">
+                <label for="userPhone">Phone / WhatsApp</label>
+                <input type="text" id="userPhone" name="phone" placeholder="+1 (555) 000-0000">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Products of Interest (Check all that apply):</label>
+              <div class="checkbox-grid">
+                <label class="checkbox-label"><input type="checkbox" name="product_interest[]" value="Scroll Saw Blades" id="chkScroll"> <span>Scroll Saw Blades</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="product_interest[]" value="Coping Saw Blades" id="chkCoping"> <span>Coping Saw Blades</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="product_interest[]" value="Mini Hacksaw Blades" id="chkMini"> <span>Mini Hacksaw Blades</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="product_interest[]" value="Air Saw Blades" id="chkAir"> <span>Air Saw Blades</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="product_interest[]" value="Hacksaw Blades" id="chkHacksaw"> <span>Hacksaw Blades</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="product_interest[]" value="OEM Custom Request" id="chkOEM"> <span>OEM / ODM Custom</span></label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message & Inquiry Details *</label>
+              <textarea id="message" name="message" rows="4" required placeholder="Please specify quantity, preferred TPI, blade material, or packaging requirements..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full btn-lg">Submit Inquiry Request</button>
+            <div id="formResponse" class="form-response"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-col">
+        <div class="brand-text">
+          <span class="brand-name">CHANG YUNG METAL WORK CO., LTD.</span>
+          <p class="footer-desc">Professional saw blade manufacturer since 1969. High precision cutting tools for industrial, woodworking, and automotive repair markets.</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Product Lines</h4>
+        <ul class="footer-links">
+          <li><a href="#products">Scroll Saw Blades (Plain / Pinned)</a></li>
+          <li><a href="#products">Coping Saw Blades</a></li>
+          <li><a href="#products">Mini Hacksaw Blades</a></li>
+          <li><a href="#products">Air Saw Blades (Pneumatic)</a></li>
+          <li><a href="#products">Hacksaw Blades (12" / 300mm)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Services</h4>
+        <ul class="footer-links">
+          <li><a href="#oem">OEM Manufacturing</a></li>
+          <li><a href="#oem">Private Label Packaging</a></li>
+          <li><a href="#about">Factory Quality Control</a></li>
+          <li><a href="#contact">Sample Request</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Chang Yung Metal Work Co., Ltd. All Rights Reserved.</p>
+        <p class="footer-credit">Hosted on GitHub Pages | Free $0 Infrastructure</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="specModal">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    function toggleGuide() {
+      const drawer = document.getElementById('guideDrawer');
+      drawer.classList.toggle('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileToggle = document.getElementById('mobileToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (mobileToggle) {
+        mobileToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+      }
+
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const productCards = document.querySelectorAll('.product-card');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.getAttribute('data-filter');
+          productCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (filter === 'all' || category === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      const specData = {
+        scroll: {
+          title: "Scroll Saw Blades Specification Table",
+          desc: "Available in Plain End (Unpinned) and Pinned End versions for 5\" (127mm) machinery.",
+          tableHeaders: ["Type / End", "Item No.", "Length", "TPI", "Width x Thickness", "Application / Material"],
+          tableRows: [
+            ["Plain End", "CY-SS-01", "5\" (127mm)", "10 TPI", "2.9mm x 0.45mm", "Fast rough wood cutting"],
+            ["Plain End", "CY-SS-02", "5\" (127mm)", "14 TPI", "2.5mm x 0.40mm", "Hardwood & plastic curves"],
+            ["Plain End", "CY-SS-03", "5\" (127mm)", "18 TPI", "2.0mm x 0.35mm", "Fine intricate fretwork"],
+            ["Plain End", "CY-SS-04", "5\" (127mm)", "24 TPI", "1.5mm x 0.30mm", "Ultra-fine detail & veneer"],
+            ["Plain End", "CY-SS-05", "5\" (127mm)", "28 TPI", "1.2mm x 0.25mm", "Thin non-ferrous metal"],
+            ["Pinned End", "CY-SSP-01", "5\" (127mm)", "10 TPI", "3.0mm x 0.50mm", "Quick-change DIY wood"],
+            ["Pinned End", "CY-SSP-02", "5\" (127mm)", "15 TPI", "3.0mm x 0.50mm", "General plastic & plywood"],
+            ["Pinned End", "CY-SSP-03", "5\" (127mm)", "18 TPI", "3.0mm x 0.50mm", "Fine clean finish cut"]
+          ]
+        },
+        coping: {
+          title: "Coping Saw Blades Specification Table",
+          desc: "High carbon steel coping saw blades with standard end pins.",
+          tableHeaders: ["Item No.", "Pin Distance", "TPI", "Blade Width", "Thickness", "Recommended Material"],
+          tableRows: [
+            ["CY-CS-14", "6.5\" (165mm)", "14 TPI", "2.5mm", "0.50mm", "Fast rough curve cutting in wood"],
+            ["CY-CS-18", "6.5\" (165mm)", "18 TPI", "2.5mm", "0.45mm", "General coping joints & molding"],
+            ["CY-CS-24", "6.5\" (165mm)", "24 TPI", "2.0mm", "0.40mm", "Fine plastic, fiberglass & soft metal"]
+          ]
+        },
+        mini: {
+          title: "Mini Hacksaw Blades Specification Table",
+          desc: "Compact 6-inch (150mm) blades for mini hacksaw frames.",
+          tableHeaders: ["Item No.", "Length", "TPI", "Material Grade", "Packaging", "Application"],
+          tableRows: [
+            ["CY-MH-24", "6\" (150mm)", "24 TPI", "High Carbon Steel (HCS)", "10 pcs / Card", "Copper pipes, plastic conduit"],
+            ["CY-MH-32", "6\" (150mm)", "32 TPI", "High Carbon Steel (HCS)", "10 pcs / Card", "Thin metal sheet, bolts, screws"],
+            ["CY-MHB-24", "6\" (150mm)", "24 TPI", "High Carbon Steel Flexible", "Bulk / Blister", "General metal & plastic cutting"]
+          ]
+        },
+        air: {
+          title: "Air Saw Blades (Pneumatic Body Saws) Specification",
+          desc: "Bi-Metal M42 pneumatic reciprocating blades for auto body repair & sheet metal shops.",
+          tableHeaders: ["Item No.", "Shank Type", "Length", "TPI", "Material", "Target Application"],
+          tableRows: [
+            ["CY-AS-18", "Universal Shank", "3.75\" (95mm)", "18 TPI", "Bi-Metal M42", "Thick auto sheet metal, exhaust pipes"],
+            ["CY-AS-24", "Universal Shank", "3.75\" (95mm)", "24 TPI", "Bi-Metal M42", "General auto body panel cutting"],
+            ["CY-AS-32", "Universal Shank", "3.75\" (95mm)", "32 TPI", "Bi-Metal M42", "Thin metal trim & high precision cuts"]
+          ]
+        },
+        hacksaw: {
+          title: "12\" (300mm) Hacksaw Blades Specification Table",
+          desc: "Heavy-duty 12-inch industrial hacksaw blades for structural steel & engineering.",
+          tableHeaders: ["Item No.", "Specification", "TPI", "Blade Grade", "End Pin Hole", "Recommended Use"],
+          tableRows: [
+            ["CY-HS-14", "12\" x 1/2\" x 0.65mm", "14 TPI", "Flexible Carbon Steel", "Standard 4.0mm", "Large solid wood, soft aluminum"],
+            ["CY-HS-18", "12\" x 1/2\" x 0.65mm", "18 TPI", "Flexible Carbon Steel", "Standard 4.0mm", "Structural steel, angle iron > 5mm"],
+            ["CY-HS-24", "12\" x 1/2\" x 0.65mm", "24 TPI", "Flexible High Carbon Steel", "Standard 4.0mm", "Medium metal pipe, conduit, rebar"],
+            ["CY-HS-32", "12\" x 1/2\" x 0.65mm", "32 TPI", "Flexible High Carbon Steel", "Standard 4.0mm", "Thin wall tubing, sheet steel < 2mm"]
+          ]
+        }
+      };
+
+      const specBtns = document.querySelectorAll('.open-spec-btn');
+      const specModal = document.getElementById('specModal');
+      const modalClose = document.getElementById('modalClose');
+      const modalContent = document.getElementById('modalContent');
+
+      specBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const prodKey = btn.getAttribute('data-product');
+          const data = specData[prodKey];
+          if (data) {
+            let headersHtml = data.tableHeaders.map(h => `<th>${h}</th>`).join('');
+            let rowsHtml = data.tableRows.map(r => `<tr>${r.map(cell => `<td>${cell}</td>`).join('')}</tr>`).join('');
+            modalContent.innerHTML = `
+              <h3 class="spec-table-title">${data.title}</h3>
+              <p class="spec-table-sub">${data.desc}</p>
+              <div style="overflow-x: auto;">
+                <table class="spec-table">
+                  <thead><tr>${headersHtml}</tr></thead>
+                  <tbody>${rowsHtml}</tbody>
+                </table>
+              </div>
+            `;
+            specModal.classList.add('open');
+          }
+        });
+      });
+
+      if (modalClose) modalClose.addEventListener('click', () => specModal.classList.remove('open'));
+      specModal.addEventListener('click', (e) => { if (e.target === specModal) specModal.classList.remove('open'); });
+
+      const inquireBtns = document.querySelectorAll('.inquire-btn');
+      const messageArea = document.getElementById('message');
+
+      inquireBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const itemName = btn.getAttribute('data-item');
+          if (itemName.includes('Scroll')) document.getElementById('chkScroll').checked = true;
+          if (itemName.includes('Coping')) document.getElementById('chkCoping').checked = true;
+          if (itemName.includes('Mini')) document.getElementById('chkMini').checked = true;
+          if (itemName.includes('Air')) document.getElementById('chkAir').checked = true;
+          if (itemName.includes('Hacksaw')) document.getElementById('chkHacksaw').checked = true;
+
+          if (messageArea) {
+            messageArea.value = `Hello Chang Yung Sales Team,\n\nI am interested in requesting a quote and specification details for: ${itemName}.\n\nPlease provide MOQ, FOB Taiwan pricing, and sample lead time.\n\nThank you.`;
+          }
+
+          document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      const form = document.getElementById('inquiryForm');
+      const responseDiv = document.getElementById('formResponse');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          const accessKey = form.querySelector('input[name="access_key"]').value;
+          if (accessKey === 'b94535eb-0d78-4fa6-8cd3-fa494fdf9948') {
+            e.preventDefault();
+            responseDiv.className = 'form-response success';
+            responseDiv.innerHTML = `<strong>Demo Inquiry Triggered!</strong><br>To connect real email forwarding to <em>sales@m-specialist.com</em>, get a free Access Key at <a href="https://web3forms.com" target="_blank" style="text-decoration:underline;">Web3Forms.com</a>.`;
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
