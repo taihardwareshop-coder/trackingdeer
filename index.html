@@ -347,9 +347,11 @@
                         <i class="fa-solid fa-paper-plane text-emerald-500 mr-3"></i> <span data-i18n="form_title">Request a Quote</span>
                     </h3>
                     
-                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
-                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
-                        <input type="hidden" name="subject" value="New RFQ from m-specialist.com">
+                    <form action="https://formsubmit.co/export@m-specialist.com" method="POST" class="space-y-4">
+                        <input type="hidden" name="_subject" value="New RFQ from m-specialist.com">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://www.m-specialist.com/thanks.html">
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
