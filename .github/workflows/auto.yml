@@ -1,0 +1,35 @@
+name: Auto AI Post
+
+on:
+  workflow_dispatch: # 讓你可以手動在網頁點按鈕觸發
+
+jobs:
+  run-ai:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # 給予寫入權限
+
+    steps:
+    - name: 讀取專案檔案
+      uses: actions/checkout@v4
+
+    - name: 安裝 Python 環境
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: 安裝 AI 套件
+      run: pip install google-generativeai
+
+    - name: 執行 AI 產生文章
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      run: python auto_generate.py
+
+    - name: 自動儲存更新到網站
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add .
+        git diff-index --quiet HEAD || git commit -m "AI 自動更新內容"
+        git push
