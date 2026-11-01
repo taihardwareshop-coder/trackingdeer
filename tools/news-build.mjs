@@ -162,8 +162,9 @@ function articlePage(a, lang) {
       ? `<a href="en/${a.slug}.html">English version →</a>`
       : `<a href="../${a.slug}.html">中文版 →</a>`
     : '';
+  const newsIndex = zh ? 'index.html' : '../index.html';
   const main = `<article class="news-article">
-  <div class="news-meta"><a href="${depth}index.html">${zh ? '首頁' : 'Home'}</a> / <a href="index.html">${zh ? '最新消息' : 'News'}</a> / <span>${esc(CATEGORIES[a.category] ?? a.category)}</span></div>
+  <div class="news-meta"><a href="${depth}index.html">${zh ? '首頁' : 'Home'}</a> / <a href="${newsIndex}">${zh ? '最新消息' : 'News'}</a> / <span>${esc(CATEGORIES[a.category] ?? a.category)}</span></div>
   <h1>${esc(zh ? a.title : a.title_en)}</h1>
   <div class="news-meta"><time datetime="${a.date}">${a.date}</time>${switchLink ? ` · ${switchLink}` : ''}</div>
   <img class="news-cover" src="${depth}${a.cover}" alt="${esc(zh ? a.title : a.title_en)}" width="1200" height="675">
@@ -172,7 +173,7 @@ function articlePage(a, lang) {
     <p>${zh ? '需要這個規格的樣品或報價？我們在台灣生產，可做 OEM／自有品牌包裝。' : 'Need samples or a quotation for this spec? We manufacture in Taiwan and handle OEM and private-label packaging.'}</p>
     <a href="${depth}index.html#contact">${zh ? '取得報價' : 'Request a quote'}</a>
   </div>
-  <div class="news-related"><a href="index.html">${zh ? '← 回最新消息' : '← Back to news'}</a></div>
+  <div class="news-related"><a href="${newsIndex}">${zh ? '← 回最新消息' : '← Back to news'}</a></div>
 </article>`;
   return { headHtml, depth, main };
 }
