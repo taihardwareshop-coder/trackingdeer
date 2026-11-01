@@ -1,4 +1,10 @@
+# m-specialist.com
 User-agent: *
 Allow: /
+Disallow: /thanks.html
+Disallow: /404.html
+Disallow: /_orig_
+Disallow: /build/
+Disallow: /src/
 
 Sitemap: https://www.m-specialist.com/sitemap.xml
