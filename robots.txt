@@ -6,5 +6,8 @@ Disallow: /404.html
 Disallow: /_orig_
 Disallow: /build/
 Disallow: /src/
+Disallow: /content/
+Disallow: /tools/
 
 Sitemap: https://www.m-specialist.com/sitemap.xml
+Sitemap: https://www.m-specialist.com/news/feed.xml

@@ -1,0 +1,44 @@
+/* M-Specialist — news pages. Plain CSS so it works without Tailwind purging. */
+.news-wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+.news-hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 55%, #065f46 100%); color: #fff; padding: 56px 0 44px; }
+.news-hero h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; margin: 0 0 10px; letter-spacing: -.02em; }
+.news-hero p { color: #cbd5e1; max-width: 720px; margin: 0; font-size: 17px; }
+.news-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 6px; }
+.news-chip { display: inline-block; padding: 7px 14px; border-radius: 999px; background: #f1f5f9; color: #0f172a; font-size: 14px; font-weight: 600; text-decoration: none; border: 1px solid #e2e8f0; }
+.news-chip:hover { background: #e2e8f0; }
+.news-chip[aria-current="page"] { background: #065f46; color: #fff; border-color: #065f46; }
+.news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; padding: 28px 0 56px; }
+.news-card { display: flex; flex-direction: column; background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; transition: transform .15s ease, box-shadow .15s ease; }
+.news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(15, 23, 42, .12); }
+.news-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: #e2e8f0; }
+.news-card-body { padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 8px; }
+.news-meta { font-size: 13px; color: #64748b; display: flex; gap: 10px; flex-wrap: wrap; }
+.news-card h2 { font-size: 19px; line-height: 1.35; margin: 0; font-weight: 700; color: #0f172a; }
+.news-card p { margin: 0; font-size: 15px; color: #475569; }
+.news-pager { display: flex; gap: 8px; justify-content: center; padding: 0 0 64px; }
+.news-pager a, .news-pager span { padding: 8px 14px; border-radius: 8px; border: 1px solid #e2e8f0; text-decoration: none; color: #0f172a; font-size: 15px; }
+.news-pager a:hover { background: #f1f5f9; }
+.news-pager span[aria-current] { background: #0f172a; color: #fff; border-color: #0f172a; }
+.news-empty { padding: 56px 0; color: #64748b; }
+.news-article { max-width: 780px; margin: 0 auto; padding: 40px 20px 72px; }
+.news-article .news-meta { margin-bottom: 8px; }
+.news-article h1 { font-size: clamp(26px, 4vw, 38px); line-height: 1.25; margin: 6px 0 18px; color: #0f172a; letter-spacing: -.02em; }
+.news-article h2 { font-size: 23px; margin: 34px 0 12px; color: #0f172a; }
+.news-article h3 { font-size: 19px; margin: 26px 0 10px; color: #0f172a; }
+.news-article p, .news-article li { font-size: 17px; line-height: 1.75; color: #334155; }
+.news-article ul, .news-article ol { padding-left: 22px; margin: 12px 0; }
+.news-article li { margin: 6px 0; }
+.news-article table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 15px; }
+.news-article th, .news-article td { border: 1px solid #e2e8f0; padding: 10px 12px; text-align: left; }
+.news-article th { background: #f8fafc; font-weight: 700; }
+.news-cover { width: 100%; border-radius: 14px; margin: 8px 0 24px; display: block; }
+.news-cta { margin: 40px 0; padding: 22px 24px; border: 1px solid #d1fae5; background: #ecfdf5; border-radius: 14px; }
+.news-cta p { margin: 0 0 12px; font-size: 16px; color: #065f46; }
+.news-cta a { display: inline-block; background: #065f46; color: #fff; text-decoration: none; padding: 10px 18px; border-radius: 9px; font-weight: 600; }
+.news-related { border-top: 1px solid #e2e8f0; margin-top: 40px; padding-top: 22px; }
+.news-related a { color: #065f46; text-decoration: none; font-weight: 600; }
+.home-news { padding: 64px 0; background: #f8fafc; border-top: 1px solid #e2e8f0; }
+.home-news-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+.home-news-head h2 { font-size: clamp(24px, 3vw, 32px); margin: 0; color: #0f172a; font-weight: 800; }
+.home-news-head a { color: #065f46; font-weight: 700; text-decoration: none; }
+.home-news .news-grid { padding: 0; }
