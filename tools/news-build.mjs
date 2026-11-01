@@ -51,8 +51,8 @@ function shift(fragment, depth) {
     .replace(/href="#/g, `href="${depth}index.html#`);
 }
 
-function renderHead({ title, description, canonical, image, jsonld }) {
-  let h = head;
+function renderHead({ title, description, canonical, image, jsonld, lang = 'zh-Hant', alternates = [] }) {
+  let h = head.replace(/<html[^>]*>/, `<html lang="${lang}">`);
   h = h.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`);
   h = h.replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(description)}">`);
   h = h.replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${esc(title)}">`);
@@ -64,7 +64,11 @@ function renderHead({ title, description, canonical, image, jsonld }) {
   h = h.replace(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${esc(title)}">`);
   h = h.replace(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${esc(description)}">`);
   h = h.replace(/<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${canonical}">`);
-  return h.replace('</head>', `  <link rel="stylesheet" href="assets/css/news.css">\n${jsonld ? `  <script type="application/ld+json">${JSON.stringify(jsonld)}</script>\n` : ''}</head>`);
+  const alt = alternates.map((a) => `  <link rel="alternate" hreflang="${a.hreflang}" href="${a.href}">\n`).join('');
+  return h.replace(
+    '</head>',
+    `  <link rel="stylesheet" href="assets/css/news.css">\n${alt}${jsonld ? `  <script type="application/ld+json">${JSON.stringify(jsonld)}</script>\n` : ''}</head>`,
+  );
 }
 
 function page({ headHtml, depth, main, extraClass = '' }) {
@@ -115,15 +119,25 @@ articles.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : a.slug.loc
 
 await mkdir(path.join(SITE, 'news'), { recursive: true });
 
-// --- article pages ---
-for (const a of articles) {
-  const canonical = `${SITE_URL}/news/${a.slug}.html`;
+// --- article pages (zh + en when translated) ---
+const EN_DIR = path.join(SITE, 'news', 'en');
+await mkdir(EN_DIR, { recursive: true });
+
+function articlePage(a, lang) {
+  const zh = lang === 'zh';
+  const locale = zh ? 'zh-Hant' : 'en';
+  const canonical = zh ? `${SITE_URL}/news/${a.slug}.html` : `${SITE_URL}/news/en/${a.slug}.html`;
   const image = a.cover.startsWith('http') ? a.cover : `${SITE_URL}/${a.cover.replace(/^\.\//, '')}`;
+  const alternates = [
+    { hreflang: 'zh-Hant', href: `${SITE_URL}/news/${a.slug}.html` },
+    ...(a.title_en ? [{ hreflang: 'en', href: `${SITE_URL}/news/en/${a.slug}.html` }] : []),
+    { hreflang: 'x-default', href: `${SITE_URL}/news/${a.slug}.html` },
+  ];
   const jsonld = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
-    headline: a.title,
-    description: a.summary,
+    headline: zh ? a.title : a.title_en,
+    description: zh ? a.summary : a.summary_en,
     datePublished: iso(a.date),
     dateModified: iso(a.date),
     image: [image],
@@ -131,22 +145,45 @@ for (const a of articles) {
     author: { '@type': 'Organization', name: 'M-Specialist | Chang Yung Metal Work Co., Ltd.' },
     publisher: { '@type': 'Organization', name: 'M-Specialist', logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/img/site/logo.png` } },
     mainEntityOfPage: canonical,
-    inLanguage: 'zh-Hant',
+    inLanguage: locale,
   };
-  const headHtml = renderHead({ title: `${a.title} | M-Specialist`, description: a.summary, canonical, image, jsonld });
+  const depth = zh ? '../' : '../../';
+  const headHtml = renderHead({
+    title: `${zh ? a.title : a.title_en} | M-Specialist`,
+    description: zh ? a.summary : a.summary_en,
+    canonical,
+    image,
+    jsonld,
+    lang: locale,
+    alternates,
+  });
+  const switchLink = a.title_en
+    ? zh
+      ? `<a href="en/${a.slug}.html">English version →</a>`
+      : `<a href="../${a.slug}.html">中文版 →</a>`
+    : '';
   const main = `<article class="news-article">
-  <div class="news-meta"><a href="../index.html">首頁</a> / <a href="index.html">最新消息</a> / <span>${esc(CATEGORIES[a.category] ?? a.category)}</span></div>
-  <h1>${esc(a.title)}</h1>
-  <div class="news-meta"><time datetime="${a.date}">${a.date}</time></div>
-  <img class="news-cover" src="../${a.cover}" alt="${esc(a.title)}" width="1200" height="675">
-  ${a.body}
+  <div class="news-meta"><a href="${depth}index.html">${zh ? '首頁' : 'Home'}</a> / <a href="index.html">${zh ? '最新消息' : 'News'}</a> / <span>${esc(CATEGORIES[a.category] ?? a.category)}</span></div>
+  <h1>${esc(zh ? a.title : a.title_en)}</h1>
+  <div class="news-meta"><time datetime="${a.date}">${a.date}</time>${switchLink ? ` · ${switchLink}` : ''}</div>
+  <img class="news-cover" src="${depth}${a.cover}" alt="${esc(zh ? a.title : a.title_en)}" width="1200" height="675">
+  ${zh ? a.body : a.body_en}
   <div class="news-cta">
-    <p>需要這個規格的樣品或報價？我們在台灣生產，可做 OEM／自有品牌包裝。</p>
-    <a href="../index.html#contact">取得報價</a>
+    <p>${zh ? '需要這個規格的樣品或報價？我們在台灣生產，可做 OEM／自有品牌包裝。' : 'Need samples or a quotation for this spec? We manufacture in Taiwan and handle OEM and private-label packaging.'}</p>
+    <a href="${depth}index.html#contact">${zh ? '取得報價' : 'Request a quote'}</a>
   </div>
-  <div class="news-related"><a href="index.html">← 回最新消息</a></div>
+  <div class="news-related"><a href="index.html">${zh ? '← 回最新消息' : '← Back to news'}</a></div>
 </article>`;
-  await writeFile(path.join(SITE, 'news', `${a.slug}.html`), page({ headHtml, depth: '../', main }));
+  return { headHtml, depth, main };
+}
+
+for (const a of articles) {
+  const zhPage = articlePage(a, 'zh');
+  await writeFile(path.join(SITE, 'news', `${a.slug}.html`), page({ ...zhPage }));
+  if (a.title_en) {
+    const enPage = articlePage(a, 'en');
+    await writeFile(path.join(EN_DIR, `${a.slug}.html`), page({ ...enPage }));
+  }
 }
 
 // --- list pages ---
@@ -242,7 +279,12 @@ await writeFile(path.join(SITE, 'index.html'), home);
 // --- sitemap ---
 let sitemap = await readFile(path.join(SITE, 'sitemap.xml'), 'utf8');
 sitemap = sitemap.replace(/<!-- NEWS:SITEMAP:START -->[\s\S]*?<!-- NEWS:SITEMAP:END -->\n?/, '');
-const urls = ['index.html', ...Object.keys(CATEGORIES).map((c) => `${c}.html`), ...articles.map((a) => `${a.slug}.html`)];
+const urls = [
+  'index.html',
+  ...Object.keys(CATEGORIES).map((c) => `${c}.html`),
+  ...articles.map((a) => `${a.slug}.html`),
+  ...articles.filter((a) => a.title_en).map((a) => `en/${a.slug}.html`),
+];
 const entries = urls
   .map((u) => {
     const loc = u === 'index.html' ? `${SITE_URL}/news/` : `${SITE_URL}/news/${u}`;
