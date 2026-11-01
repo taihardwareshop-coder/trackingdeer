@@ -71,39 +71,55 @@ function renderHead({ title, description, canonical, image, jsonld, lang = 'zh-H
   );
 }
 
-function page({ headHtml, depth, main, extraClass = '' }) {
-  return `${shift(headHtml, depth)}${shift(bodyPrefix, depth)}${shift(header, depth)}<main id="main" class="${extraClass}">${main}</main>${shift(footer, depth)}${shift(scripts, depth)}</body>\n</html>\n`;
+/** Replace the JS language dropdown with a plain link to the other language. */
+function swapLangSelector(headerHtml, href, label) {
+  const start = headerHtml.indexOf('<!-- Language Selector -->');
+  const quote = headerHtml.indexOf('data-i18n="nav_quote"', start);
+  const end = quote > -1 ? headerHtml.lastIndexOf('<a ', quote) : -1;
+  if (start < 0 || end < 0) return headerHtml;
+  const link = `<a href="${href}" class="text-sm text-slate-300 hover:text-emerald-400 border border-slate-600 rounded px-2 py-1">${label}</a>\n                `;
+  return headerHtml.slice(0, start) + link + headerHtml.slice(end);
 }
 
-function card(a, depth) {
-  const href = `${depth}news/${a.slug}.html`;
+function page({ headHtml, depth, main, extraClass = '', langHref, langLabel = 'EN' }) {
+  let hdr = shift(header, depth);
+  if (langHref) hdr = swapLangSelector(hdr, langHref, langLabel);
+  return `${shift(headHtml, depth)}${shift(bodyPrefix, depth)}${hdr}<main id="main" class="${extraClass}">${main}</main>${shift(footer, depth)}${shift(scripts, depth)}</body>\n</html>\n`;
+}
+
+function card(a, depth, lang = 'zh') {
+  const en = lang === 'en';
+  const href = `${depth}news/${en ? 'en/' : ''}${a.slug}.html`;
+  const title = en ? a.title_en : a.title;
+  const summary = en ? a.summary_en : a.summary;
   return `<a class="news-card" href="${href}">
-  <img src="${depth}${a.cover}" alt="${esc(a.title)}" loading="lazy" width="640" height="360">
+  <img src="${depth}${a.cover}" alt="${esc(title)}" loading="lazy" width="640" height="360">
   <div class="news-card-body">
     <div class="news-meta"><span>${a.date}</span><span>${esc(CATEGORIES[a.category] ?? a.category)}</span></div>
-    <h2>${esc(a.title)}</h2>
-    <p>${esc(a.summary)}</p>
+    <h2>${esc(title)}</h2>
+    <p>${esc(summary)}</p>
   </div>
 </a>`;
 }
 
-function chips(active, depth) {
-  const items = [['', '全部'], ...Object.entries(CATEGORIES)];
+function chips(active, depth, lang = 'zh') {
+  const en = lang === 'en';
+  const items = [['', en ? 'All' : '全部'], ...Object.entries(CATEGORIES)];
+  const base = en ? `${depth}news/en/` : `${depth}news/`;
   return `<div class="news-chips">${items
     .map(([slug, label]) => {
-      const href = slug === '' ? `${depth}news/index.html` : `${depth}news/${slug}.html`;
+      const href = slug === '' ? `${base}index.html` : `${base}${slug}.html`;
       const cur = slug === active ? ' aria-current="page"' : '';
       return `<a class="news-chip" href="${href}"${cur}>${esc(label)}</a>`;
     })
     .join('')}</div>`;
 }
 
-function pager(pageNo, totalPages, nameFor) {
+function pager(pageNo, totalPages, hrefFor) {
   if (totalPages <= 1) return '';
   const parts = [];
   for (let i = 1; i <= totalPages; i += 1) {
-    const url = `../news/${nameFor(i)}`;
-    parts.push(i === pageNo ? `<span aria-current="page">${i}</span>` : `<a href="${url}">${i}</a>`);
+    parts.push(i === pageNo ? `<span aria-current="page">${i}</span>` : `<a href="${hrefFor(i)}">${i}</a>`);
   }
   return `<nav class="news-pager" aria-label="Pagination">${parts.join('')}</nav>`;
 }
@@ -175,7 +191,13 @@ function articlePage(a, lang) {
   </div>
   <div class="news-related"><a href="${newsIndex}">${zh ? '← 回最新消息' : '← Back to news'}</a></div>
 </article>`;
-  return { headHtml, depth, main };
+  return {
+    headHtml,
+    depth,
+    main,
+    langHref: zh ? `en/${a.slug}.html` : `../${a.slug}.html`,
+    langLabel: zh ? 'EN' : '中文',
+  };
 }
 
 for (const a of articles) {
@@ -187,38 +209,71 @@ for (const a of articles) {
   }
 }
 
-// --- list pages ---
-async function writeList({ filter, slug, label, description }) {
-  const list = filter ? articles.filter((a) => a.category === filter) : articles;
+// --- list pages (zh + en) ---
+async function writeList({ filter, slug, label, description, lang = 'zh' }) {
+  const en = lang === 'en';
+  const list = (filter ? articles.filter((a) => a.category === filter) : articles).filter((a) => (en ? Boolean(a.title_en) : true));
   const totalPages = Math.max(1, Math.ceil(list.length / PER_PAGE));
+  const dir = en ? path.join(SITE, 'news', 'en') : path.join(SITE, 'news');
+  const depth = en ? '../../' : '../';
+  const prefix = en ? 'en/' : '';
   const nameFor = (p) =>
     slug ? (p === 1 ? `${slug}.html` : `${slug}-${p}.html`) : p === 1 ? 'index.html' : `all-${p}.html`;
+  const hrefFor = (p) => (en ? `../en/${nameFor(p)}` : `../news/${nameFor(p)}`);
+  const homeLabel = en ? 'News' : '最新消息';
+  const desc = en
+    ? 'Product selection guides, machining practice and sourcing notes from the M-Specialist engineering team.'
+    : description;
   for (let p = 1; p <= totalPages; p += 1) {
     const slice = list.slice((p - 1) * PER_PAGE, p * PER_PAGE);
     const file = nameFor(p);
-    const canonical = `${SITE_URL}/news/${file === 'index.html' ? '' : file}`;
+    const canonical = `${SITE_URL}/news/${prefix}${file === 'index.html' ? '' : file}`;
     const headHtml = renderHead({
-      title: slug === '' ? '最新消息 | M-Specialist' : `${label} | 最新消息 | M-Specialist`,
-      description,
+      title: en
+        ? slug === ''
+          ? 'News | M-Specialist'
+          : `${label} | News | M-Specialist`
+        : slug === ''
+          ? '最新消息 | M-Specialist'
+          : `${label} | 最新消息 | M-Specialist`,
+      description: desc,
       canonical,
       image: `${SITE_URL}/assets/img/og/og-index.jpg`,
+      lang: en ? 'en' : 'zh-Hant',
+      alternates: [
+        { hreflang: 'zh-Hant', href: `${SITE_URL}/news/${slug ? `${slug}.html` : ''}` },
+        { hreflang: 'en', href: `${SITE_URL}/news/en/${slug ? `${slug}.html` : ''}` },
+      ],
       jsonld: {
         '@context': 'https://schema.org',
         '@type': 'CollectionPage',
         name: `${label} — M-Specialist News`,
         url: canonical,
-        inLanguage: 'zh-Hant',
+        inLanguage: en ? 'en' : 'zh-Hant',
       },
     });
-    const main = `<section class="news-hero"><div class="news-wrap"><h1>最新消息</h1><p>${esc(description)}</p></div></section>
-<div class="news-wrap">${chips(slug, '../')}<div class="news-grid">${slice.map((a) => card(a, '../')).join('\n') || '<p class="news-empty">這個分類還沒有文章。</p>'}</div>${pager(p, totalPages, nameFor)}</div>`;
-    await writeFile(path.join(SITE, 'news', file), page({ headHtml, depth: '../', main }));
+    const main = `<section class="news-hero"><div class="news-wrap"><h1>${homeLabel}</h1><p>${esc(desc)}</p></div></section>
+<div class="news-wrap">${chips(slug, depth, lang)}<div class="news-grid">${slice.map((a) => card(a, depth, lang)).join('\n') || `<p class="news-empty">${en ? 'No articles in this category yet.' : '這個分類還沒有文章。'}</p>`}</div>${pager(p, totalPages, hrefFor)}</div>`;
+    await writeFile(
+      path.join(dir, file),
+      page({
+        headHtml,
+        depth,
+        main,
+        langHref: en ? (slug ? `../${slug}.html` : '../index.html') : slug ? `en/${slug}.html` : 'en/index.html',
+        langLabel: en ? '中文' : 'EN',
+      }),
+    );
   }
 }
 
 await writeList({ filter: null, slug: '', label: '最新消息', description: '產品選型、加工實務與採購資訊。由 M-Specialist 工程團隊整理。' });
 for (const [slug, label] of Object.entries(CATEGORIES)) {
   await writeList({ filter: slug, slug, label, description: `${label} 的選型、應用與採購筆記。` });
+}
+await writeList({ filter: null, slug: '', label: 'News', lang: 'en', description: 'Product selection, machining practice and sourcing notes.' });
+for (const [slug, label] of Object.entries(CATEGORIES)) {
+  await writeList({ filter: slug, slug, label, lang: 'en', description: `${label} guides and sourcing notes.` });
 }
 
 // --- RSS ---
@@ -285,6 +340,8 @@ const urls = [
   'index.html',
   ...Object.keys(CATEGORIES).map((c) => `${c}.html`),
   ...articles.map((a) => `${a.slug}.html`),
+  'en/index.html',
+  ...Object.keys(CATEGORIES).map((c) => `en/${c}.html`),
   ...articles.filter((a) => a.title_en).map((a) => `en/${a.slug}.html`),
 ];
 const entries = urls
