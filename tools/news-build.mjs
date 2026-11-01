@@ -270,7 +270,8 @@ if (home.includes('<!-- NEWS:HOME:START -->')) {
   const anchor = home.indexOf('<footer');
   home = `${home.slice(0, anchor)}${homeBlock}\n${home.slice(anchor)}`;
 }
-// nav link
+// nav link — strip then insert once, so repeated builds stay idempotent
+home = home.replace(/\n\s*<a href="news\/index\.html"[^>]*>NEWS<\/a>/g, '');
 home = home.replace(
   /(<a href="#why-us")/,
   '<a href="news/index.html" class="hover:text-emerald-400 transition">NEWS</a>\n                $1',

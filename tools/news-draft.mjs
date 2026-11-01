@@ -72,13 +72,16 @@ const STYLE = `<style>
 .a img{max-width:100%;height:auto;border-radius:12px}
 </style>`;
 
-function bodyHtml(article) {
+function bodyHtml(article, lang) {
+  const en = lang === 'en';
+  const title = en ? article.title_en : article.title;
+  const body = en ? article.body_en : article.body;
   return `${STYLE}
 <article class="a">
-<h1>${article.title}</h1>
+<h1>${title}</h1>
 <div class="meta">${article.date} · ${CATEGORIES[article.category] ?? article.category}</div>
-<img src="https://www.m-specialist.com/${article.cover}" alt="${article.title}">
-${article.body}
+<img src="https://www.m-specialist.com/${article.cover}" alt="${title}">
+${body}
 </article>`;
 }
 
@@ -94,16 +97,22 @@ const slug = arg('slug');
 if (!slug) throw new Error('need --slug=<file name without .json>');
 const article = JSON.parse((await readFile(path.join(SITE, 'content', 'news', `${slug}.json`), 'utf8')));
 
+const lang = arg('lang', 'zh');
+const langTitle = lang === 'en' ? article.title_en : article.title;
+const langSummary = lang === 'en' ? article.summary_en : article.summary;
+if (!langTitle || !langSummary) throw new Error(`article ${slug} has no ${lang} version`);
+
 const existing = await api(cookie, `/api/agent/drafts?target=${encodeURIComponent(TARGET)}`);
-const mine = (existing.drafts ?? existing ?? []).find((d) => d.title === article.title);
+const mine = (existing.drafts ?? existing ?? []).find((d) => d.title === langTitle);
 
 const payload = {
-  title: article.title,
-  body: article.summary,
-  body_html: bodyHtml(article),
-  lang: article.lang ?? 'zh',
+  title: langTitle,
+  body: langSummary,
+  body_html: bodyHtml(article, lang),
+  lang,
   target: TARGET,
   content_type: 'html',
+  kind: arg('kind', 'product'), // 'product' needs 主公 approval; 'news' may bypass
 };
 let result;
 if (mine && ['draft', 'rejected'].includes(mine.status)) {
@@ -119,4 +128,24 @@ if (process.argv.includes('--submit')) {
   await api(cookie, `/api/agent/drafts/${id}/submit`, { method: 'POST', body: '{}' });
   console.log(`submitted #${id} for review`);
 }
-console.log(JSON.stringify({ id, preview: `${BASE}/api/agent/drafts/${id}/preview`, page: `${BASE}/pages/dsh-drafts.html` }, null, 2));
+
+const articleUrl =
+  article.url ?? `https://www.m-specialist.com/news/${lang === 'en' ? 'en/' : ''}${article.slug}.html`;
+if (process.argv.includes('--publish')) {
+  const body = payload.kind === 'news' ? { published_url: articleUrl, bypass_review: true } : { published_url: articleUrl };
+  const pub = await api(cookie, `/api/agent/drafts/${id}/published`, { method: 'POST', body: JSON.stringify(body) });
+  console.log(`published #${id} -> ${(pub.draft ?? pub).status ?? 'ok'}`);
+}
+
+// Topic library bookkeeping: hash is sha1 of the library's exact title, so the
+// title must be copied verbatim from news-topics.json, not rewritten.
+const topicTitle = arg('topic-title');
+if (topicTitle) {
+  const marked = await api(cookie, '/api/agent/topic-use', {
+    method: 'POST',
+    body: JSON.stringify({ title: topicTitle, category: arg('category'), draft_id: id, article_url: articleUrl }),
+  });
+  console.log(`topic marked used: ${marked.hash ?? JSON.stringify(marked).slice(0, 120)}`);
+}
+
+console.log(JSON.stringify({ id, articleUrl, preview: `${BASE}/api/agent/drafts/${id}/preview`, page: `${BASE}/pages/dsh-drafts.html` }, null, 2));

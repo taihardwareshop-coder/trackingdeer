@@ -1,0 +1,16 @@
+{
+  "note": "已發布文章登記表。news-build / news-draft 產稿前先比對 slug 與 topic_id，避免重複題材。",
+  "topicSource": "SMARTCY 題材庫（張良提供頁面後填入路徑）",
+  "articles": [
+    {
+      "slug": "2026-11-01-tpi-guide",
+      "topic_id": "T-001",
+      "category": "hacksaw",
+      "title": "14、18、24、32 TPI 怎麼選？鋸片齒數選擇的實務對照表",
+      "title_en": "Choosing the Right TPI: 14, 18, 24 or 32 Explained",
+      "date": "2026-11-01",
+      "draft_id": 14,
+      "published_url": "https://www.m-specialist.com/news/2026-11-01-tpi-guide.html"
+    }
+  ]
+}
