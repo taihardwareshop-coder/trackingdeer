@@ -55,7 +55,7 @@
     <priority>0.6</priority>
   </url>
 <!-- NEWS:SITEMAP:START -->
-  <url><loc>https://www.m-specialist.com/news/</loc><lastmod>2026-11-01</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.m-specialist.com/news/</loc><lastmod>2026-11-02</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.m-specialist.com/news/hacksaw.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.m-specialist.com/news/air-saw.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.m-specialist.com/news/coping.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -64,6 +64,7 @@
   <url><loc>https://www.m-specialist.com/news/scroll-saw.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.m-specialist.com/news/handy-saw.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.m-specialist.com/news/general.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.m-specialist.com/news/2026-11-02-pinned-vs-plain-scroll-saw.html</loc><lastmod>2026-11-02</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.m-specialist.com/news/2026-11-01-tpi-guide.html</loc><lastmod>2026-11-01</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.m-specialist.com/news/en/index.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.m-specialist.com/news/en/hacksaw.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -74,6 +75,7 @@
   <url><loc>https://www.m-specialist.com/news/en/scroll-saw.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.m-specialist.com/news/en/handy-saw.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.m-specialist.com/news/en/general.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.m-specialist.com/news/en/2026-11-02-pinned-vs-plain-scroll-saw.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.m-specialist.com/news/en/2026-11-01-tpi-guide.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
 <!-- NEWS:SITEMAP:END -->
 </urlset>
